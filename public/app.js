@@ -1270,14 +1270,14 @@ function updateZoneSettings() {
     const shrinkRate = parseFloat(document.getElementById('shrink-rate-slider').value) / 100;
     const shrinkInterval = parseInt(document.getElementById('shrink-interval-input').value);
     
-    if (shrinkRate >= 0.1 && shrinkRate <= 0.9 && shrinkInterval >= 1 && shrinkInterval <= 60) {
+    if (shrinkRate >= 0.1 && shrinkRate <= 0.9 && shrinkInterval >= 0 ) {
         socket.emit('admin-update-zone-settings', { 
             shrinkRate: shrinkRate,
             shrinkInterval: shrinkInterval * 60000 // Convert to milliseconds
         });
         showToast(`Zone settings updated: ${Math.round(shrinkRate * 100)}% shrink every ${shrinkInterval} minutes`, 'success');
     } else {
-        showToast('Invalid settings: rate 10-90%, interval 1-60 minutes', 'error');
+        showToast('Invalid settings: rate 10-90%, interval must be 0 or greater', 'error');
     }
 }
 
@@ -1298,11 +1298,11 @@ function updateShrinkRate() {
 
 function updateShrinkInterval() {
     const newInterval = parseInt(document.getElementById('shrink-interval-input').value) * 60000; // Convert minutes to ms
-    if (newInterval >= 60000 && newInterval <= 3600000) { // 1-60 minutes
+    if (newInterval >= 0) { // Allow any positive interval
         socket.emit('admin-update-zone', { shrinkInterval: newInterval });
         showToast(`Shrink interval updated to ${Math.round(newInterval/60000)} minutes`, 'success');
     } else {
-        showToast('Interval must be between 1-60 minutes', 'error');
+        showToast('Interval must be 0 or greater', 'error');
     }
 }
 
