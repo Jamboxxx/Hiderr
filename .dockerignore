@@ -3,6 +3,8 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
 
 # Environment variables
 .env
@@ -39,8 +41,17 @@ bower_components
 # Yarn Integrity file
 .yarn-integrity
 
+# Package manager files
+.pnpm-store/
+.yarn/
+yarn.lock
+pnpm-lock.yaml
+
 # VS Code
 .vscode/
+
+# JetBrains IDEs
+.idea/
 
 # OS generated files
 .DS_Store
@@ -53,6 +64,9 @@ Thumbs.db
 
 # Docker
 .dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml
 
 # Git
 .git
@@ -63,3 +77,7 @@ README.md
 *.md
 docs/
 examples/
+test/
+tests/
+__tests__/
+spec/
