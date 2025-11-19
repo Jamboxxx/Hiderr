@@ -1,9 +1,9 @@
 services:
-  seek-them:
+  hiderr:
     build: 
       context: .
       dockerfile: Dockerfile
-    container_name: seek-them-app
+    container_name: hiderr
     ports:
       - "3000:3000"
     environment:
@@ -17,8 +17,8 @@ services:
       retries: 3
       start_period: 15s
     networks:
-      - seek-them-network
+      - hiderr-network
 
 networks:
-  seek-them-network:
+  hiderr-network:
     driver: bridge
