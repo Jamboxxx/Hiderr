@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 # 🕵️ Hiderr - Real-Time Hide and Seek
+=======
+# SeekThem - Real-Time Hide and Seek
+>>>>>>> 2002b28815f979b7653612b90ee2944216f381f8
 
 A real-time multiplayer hide and seek game with GPS location tracking and dynamic shrinking zones. Perfect for outdoor games with friends!
 
-## 🎮 How It Works
+## How It Works
 
 - **One Hider**: Stays hidden and tries to avoid detection
 - **Multiple Seekers**: Work together to find the hider
@@ -10,7 +14,7 @@ A real-time multiplayer hide and seek game with GPS location tracking and dynami
 - **Real-Time Tracking**: All seekers can see each other on the map (but not the hider)
 - **Mobile-First**: Optimized for phones with location permissions
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: Docker Compose (Recommended)
 ```bash
@@ -30,16 +34,10 @@ docker build -t seek-them .
 docker run -p 3000:3000 seek-them
 ```
 
-### Option 4: Development Mode
-```bash
-npm install
-npm start
-```
 
-## 📱 How to Play
+## How to Play
 
 1. **Setup**:
-   - Host starts the server and shares the local IP
    - All players open the website on their phones
    - Grant location permissions when prompted
 
@@ -50,15 +48,14 @@ npm start
 
 3. **Game Start**:
    - Hider clicks "Start Game" when everyone is ready
-   - Zone begins shrinking every 30 seconds
+   - Zone begins shrinking at a customizable rate
    - Seekers try to find the hider before the zone collapses
 
 4. **Winning Conditions**:
    - **Seekers Win**: Hider clicks "Found Me" button
    - **Hider Wins**: Survive until the zone becomes too small
-   - **Seekers Win**: Hider leaves the safe zone
 
-## 🛠 Admin Tools
+## Admin Tools
 
 Access admin tools from the homepage with password: **`seek`**
 
@@ -66,15 +63,21 @@ Access admin tools from the homepage with password: **`seek`**
 - **Game Status**: View current player count, game state, and hider status
 - **Dummy Players**: Add test seekers and hiders with random Dublin locations
 - **Game Controls**: Force start/stop games and reset game state
-- **Zone Controls**: Dynamically adjust zone radius (50-5000 meters)
+- **Zone Controls**: Dynamically adjust zone radius and rate of closing
 
 ### Testing with Dummy Players:
-1. Click "⚙️ Admin" on homepage
+1. Click " Admin" on homepage
 2. Enter password: `seek`
 3. Use "Add Dummy Seeker/Hider" to populate the map
 4. Test game mechanics without real players
 
-## 🎯 Game Features
+### Edit Zone Settings:
+1. Click " Admin" on homepage
+2. Enter password: `seek`
+3. Edit the "Zone Radius, Shrink Rate or Shrink Interval minutes" to your liking
+4. Play!
+
+## Game Features
 
 ### Real-Time Location Tracking
 - Uses GPS for accurate positioning
@@ -96,7 +99,7 @@ Access admin tools from the homepage with password: **`seek`**
 - Automatic game state synchronization
 - Connection handling and reconnection
 
-## 🛠 Technical Stack
+## Technical Stack
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **Backend**: Node.js, Express.js, Socket.IO
@@ -105,42 +108,21 @@ Access admin tools from the homepage with password: **`seek`**
 - **Location**: HTML5 Geolocation API
 - **Deployment**: Docker & Docker Compose
 
-## 🔧 Configuration
 
-### Environment Variables
-```bash
-PORT=3000                    # Server port (default: 3000)
-NODE_ENV=production         # Environment mode
-```
-
-### Game Settings (server.js)
-```javascript
-zoneRadius: 1000,           // Initial zone size (meters)
-shrinkRate: 0.98,           // Zone shrink rate (2% per interval)
-shrinkInterval: 30000,      // Shrink every 30 seconds
-```
-
-## 📡 Network Setup
+## Network Setup
 
 ### Local Network Play
 1. Ensure all devices are on the same WiFi network
 2. Find your server's IP address:
-   ```bash
-   # Linux/Mac
-   hostname -I
-   
-   # Windows
-   ipconfig
-   ```
 3. Share `http://YOUR_IP:3000` with players
 
 ### Port Forwarding (External Access)
 If you want players to connect from outside your network:
-1. Forward port 3000 in your router settings
+1. Forward port 3000 in your router settings or with a port forwarder
 2. Share your public IP address
 3. Ensure your firewall allows the connection
 
-## 🔒 Security Features
+## Security Features
 
 - Non-root Docker container
 - Input validation and sanitization
@@ -148,28 +130,12 @@ If you want players to connect from outside your network:
 - CORS protection
 - No data persistence (privacy-focused)
 
-## 🎨 Customization
-
-### Changing Zone Behavior
-Edit `server.js` line ~150 to modify zone movement:
-```javascript
-const moveRatio = 0.3; // How quickly zone moves toward hider
-const randomOffset = 0.0005; // Random offset to prevent centering
-```
+## Customization
 
 ### Styling
-Modify `public/style.css` for custom themes:
-- Color schemes
-- Mobile responsiveness
-- Animation effects
+Feel free to modify `public/style.css` for custom themes
 
-### Win Conditions
-Adjust detection distance in `server.js`:
-```javascript
-if (distance < 20) { // Change detection range (meters)
-```
-
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Location Issues
 - **"Location access denied"**: Check browser permissions
@@ -183,29 +149,23 @@ if (distance < 20) { // Change detection range (meters)
 
 ### Performance
 - **Lag on map**: Reduce number of connected players
-- **Battery drain**: Location tracking is intensive
+- **Battery drain**: Location tracking drains alot of battery
 - **Slow updates**: Check network connection
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
+2. Create a feature branch
 3. Make your changes
 4. Test thoroughly on mobile devices
 5. Submit a pull request
 
-## 📄 License
+## Credits
 
-MIT License - feel free to modify and distribute!
-
-## 🎉 Credits
-
-Built with love for outdoor gaming enthusiasts!
+Built with love for my friends and gaming enthusiasts!
 
 - Maps powered by OpenStreetMap
 - Real-time magic by Socket.IO
-- Mobile-first design principles
+- Jetlag The Game: for making me want to play games like this
 
 ---
-
-**Ready to play? Start the server and gather your friends! 🏃‍♂️💨**
