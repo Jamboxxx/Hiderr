@@ -1,4 +1,4 @@
-# 🕵️ SeekThem - Real-Time Hide and Seek
+# 🕵️ Hiderr - Real-Time Hide and Seek
 
 A real-time multiplayer hide and seek game with GPS location tracking and dynamic shrinking zones. Perfect for outdoor games with friends!
 
@@ -14,8 +14,8 @@ A real-time multiplayer hide and seek game with GPS location tracking and dynami
 
 ### Option 1: Docker Compose (Recommended)
 ```bash
-git clone https://github.com/Jamboxxx/SeekThem.git
-cd SeekThem
+git clone https://github.com/Jamboxxx/Hiderr.git
+cd Hiderr
 docker-compose up -d
 ```
 

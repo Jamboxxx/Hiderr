@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Build and deploy script for SeekThem
+# Build and deploy script for Hiderr
 set -e
 
-echo "🔨 Building SeekThem Docker container..."
+echo "🔨 Building Hiderr Docker container..."
 
 # Build the Docker image
 docker build -t seek-them:latest .
@@ -17,7 +17,7 @@ if docker ps | grep -q seek-them-app; then
     docker rm seek-them-app
 fi
 
-echo "🚀 Starting SeekThem container..."
+echo "🚀 Starting Hiderr container..."
 
 # Run the container
 docker run -d \
@@ -26,7 +26,7 @@ docker run -d \
     -p 3000:3000 \
     seek-them:latest
 
-echo "✅ SeekThem is now running!"
+echo "✅ Hiderr is now running!"
 echo "🌐 Open http://localhost:3000 in your browser"
 echo "📱 Share this URL with players on your local network:"
 

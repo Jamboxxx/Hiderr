@@ -66,15 +66,15 @@ function savePlayerData() {
             isInGame: !!selectedRole
         };
         
-        localStorage.setItem('seekThem_gameState', JSON.stringify(gameState));
-        localStorage.setItem('seekThem_lastActive', Date.now().toString());
+        localStorage.setItem('hiderr_gameState', JSON.stringify(gameState));
+        localStorage.setItem('hiderr_lastActive', Date.now().toString());
         
         // Also save individual items for backward compatibility
         if (gameState.name) {
-            localStorage.setItem('seekThem_playerName', gameState.name);
+            localStorage.setItem('hiderr_playerName', gameState.name);
         }
         if (gameState.role) {
-            localStorage.setItem('seekThem_selectedRole', gameState.role);
+            localStorage.setItem('hiderr_selectedRole', gameState.role);
         }
     } catch (e) {
         console.warn('Could not save to localStorage:', e);
@@ -84,10 +84,10 @@ function savePlayerData() {
 function loadPlayerData() {
     try {
         // Try to load complete game state first
-        const savedState = localStorage.getItem('seekThem_gameState');
+        const savedState = localStorage.getItem('hiderr_gameState');
         if (savedState) {
             const gameState = JSON.parse(savedState);
-            const lastActive = parseInt(localStorage.getItem('seekThem_lastActive') || '0');
+            const lastActive = parseInt(localStorage.getItem('hiderr_lastActive') || '0');
             
             // Only use saved data if it's recent (within 2 hours)
             if (Date.now() - lastActive < 7200000) {
@@ -109,8 +109,8 @@ function loadPlayerData() {
         }
         
         // Fallback to individual items
-        const name = localStorage.getItem('seekThem_playerName');
-        const role = localStorage.getItem('seekThem_selectedRole');
+        const name = localStorage.getItem('hiderr_playerName');
+        const role = localStorage.getItem('hiderr_selectedRole');
         
         if (name) {
             playerData.name = name;
@@ -774,8 +774,8 @@ function startGame() {
 function leaveGame() {
     // Clear localStorage
     try {
-        localStorage.removeItem('seekThem_playerName');
-        localStorage.removeItem('seekThem_selectedRole');
+        localStorage.removeItem('hiderr_playerName');
+        localStorage.removeItem('hiderr_selectedRole');
     } catch (e) {
         console.warn('Could not clear localStorage:', e);
     }
@@ -853,12 +853,12 @@ function clearAllPlayerData() {
     gameStartTime = null;
     
     // Clear localStorage completely - including individual items
-    localStorage.removeItem('seekThem_playerData');
-    localStorage.removeItem('seekThem_sessionData');
-    localStorage.removeItem('seekThem_gameState');
-    localStorage.removeItem('seekThem_playerName');
-    localStorage.removeItem('seekThem_selectedRole');
-    localStorage.removeItem('seekThem_lastActive');
+    localStorage.removeItem('hiderr_playerData');
+    localStorage.removeItem('hiderr_sessionData');
+    localStorage.removeItem('hiderr_gameState');
+    localStorage.removeItem('hiderr_playerName');
+    localStorage.removeItem('hiderr_selectedRole');
+    localStorage.removeItem('hiderr_lastActive');
     localStorage.removeItem('playerData');
     
     // Clear name input field
@@ -1351,7 +1351,7 @@ function setupBackgroundHandling() {
 
 // Enhanced initialization with background support
 function init() {
-    console.log('Initializing SeekThem...');
+    console.log('Initializing Hiderr...');
     
     // Clear all data on startup
     clearAllPlayerData();
@@ -1395,7 +1395,7 @@ function init() {
         }
     }
     
-    console.log('SeekThem initialization complete');
+    console.log('Hiderr initialization complete');
 }
 
 // Enhanced DOM ready with error handling

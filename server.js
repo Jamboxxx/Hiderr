@@ -771,6 +771,6 @@ function calculateCenterPoint(locations) {
 
 // Start server
 server.listen(PORT, () => {
-  console.log(`SeekThem server running on port ${PORT}`);
+  console.log(`Hiderr server running on port ${PORT}`);
   console.log(`Open http://localhost:${PORT} to play`);
 });

@@ -1,5 +1,5 @@
 // Service Worker for background processing and offline capabilities
-const CACHE_NAME = 'seekThem-v1';
+const CACHE_NAME = 'hiderr-v1';
 const urlsToCache = [
   '/',
   '/style.css',
